@@ -58,7 +58,7 @@ yakudoshi:
     - ["前厄", "平成 7 年生 (32才)", "平成 21 年生 (18才)"]
     - ["本厄", "平成 6 年生 (33才)", "平成 20 年生 (19才)"]
     - ["後厄", "平成 5 年生 (34才)", "平成 19 年生 (20才)"]
-keidaiImage: /img/keidai.png
+keidaiImage: /img/keidai-map.png
 keidaiSpots:
   - number: 1
     name: 交通安全祈願所
