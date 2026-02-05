@@ -212,7 +212,7 @@ collections:
       - label: 日付
         name: date
         widget: datetime
-        format: 'YYYY-MM-DD HH:mm:ss ZZ' # Needed to avoid the following error in the CMS preview: "Objects are not valid as a React child"
+        format: 'YYYY-MM-DDTHH:mm:ssZ'
         date_format: true
         time_format: false
         picker_utc: true # so users in all timezones will see the same date in the datetime picker
