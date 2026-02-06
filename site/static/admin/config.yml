@@ -97,12 +97,6 @@ collections:
             name: 'keidaiImage'
             widget: 'image'
             required: false
-          - label: '境内の見どころ'
-            name: 'keidaiSpots'
-            widget: list
-            fields:
-              - { label: '番号', name: 'number', widget: 'number' }
-              - { label: '名称', name: 'name', widget: 'string' }
           - label: '交通案内'
             name: 'transportation'
             widget: 'text'
