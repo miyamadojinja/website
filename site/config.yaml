@@ -1,8 +1,12 @@
 # https://gohugo.io/getting-started/configuration/#all-configuration-settings
-baseURL: '/'
-languageCode: 'ja'
+baseURL: 'https://miyamadojinja.com/'
+defaultContentLanguage: 'ja'
+languageCode: 'ja-JP'
+hasCJKLanguage: true
+timeZone: 'Asia/Tokyo'
+enableRobotsTXT: true
 title: '海山道神社'
-Copyright: 'Miyamadojinja'
+copyright: '海山道神社'
 
 # https://gohugo.io/variables/site/#the-siteparams-variable
 params:
@@ -15,8 +19,7 @@ params:
   twitterUrl: https://twitter.com/search?q=%E6%B5%B7%E5%B1%B1%E9%81%93%E7%A5%9E%E7%A4%BE
   facebookUrl: https://www.facebook.com/%E6%B5%B7%E5%B1%B1%E9%81%93%E7%A5%9E%E7%A4%BE-137077743078473
   instagramUrl: https://www.instagram.com/miyamado_shrine
-  description: |
-    開運・厄除け・結び・合格の神様
+  description: '開運・厄除け・結び・合格の神様'
   sourceCodeUrl: "https://github.com/miyamadojinja/miyamadojinja-website"
   sourceCodeLabel: "このサイトのソースコード"
   # Specify sections to pull recent posts from.
