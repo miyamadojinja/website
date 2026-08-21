@@ -1,7 +1,7 @@
 # https://gohugo.io/getting-started/configuration/#all-configuration-settings
 baseURL: 'https://miyamadojinja.com/'
 defaultContentLanguage: 'ja'
-languageCode: 'ja-JP'
+locale: 'ja-JP'
 hasCJKLanguage: true
 timeZone: 'Asia/Tokyo'
 enableRobotsTXT: true
@@ -76,3 +76,14 @@ module:
   - disableWatch: true
     source: hugo_stats.json
     target: assets/notwatching/hugo_stats.json
+
+# Allow Hugo's asset pipeline to invoke only the required build tools.
+security:
+  exec:
+    allow:
+    - '^(dart-)?sass$'
+    - '^go$'
+    - '^git$'
+    - '^node$'
+    - '^postcss$'
+    - '^tailwindcss$'

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ $.Site.LanguageCode | default "en" }}">
+<html lang="{{ .Site.Language.Locale | default "ja-JP" }}">
   <head>
     <title>
       {{- if and .Params.Title (not (eq .Params.Title .Site.Title)) -}}
@@ -19,7 +19,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ relURL "img/favicon.ico" }}">
 
     {{/* https://gohugo.io/functions/css/tailwindcss/ */}}
-    {{ partialCached "css.html" . }}
+    {{ partial "css.html" . }}
 
     {{/* https://gohugo.io/hugo-pipes/js */}}
     {{ if hugo.IsServer }}
