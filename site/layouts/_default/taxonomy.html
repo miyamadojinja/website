@@ -13,26 +13,26 @@
   {{ partial "page-top-spacer.html" . }}
   {{ partial "page-title.html" . }}
 
-  <main class="container mx-auto px-4 my-12">
-    <div class="prose max-w-none mb-10">
+  <main class="page-content">
+    <div class="rich-text page-content__intro">
       {{ .Content }}
     </div>
 
     {{ if .Pages }}
-      <ul class="space-y-6">
+      <ul class="post-list">
         {{ range .Pages.ByPublishDate.Reverse }}
           <li>
-            <a href="{{ .Permalink }}" class="block bg-white p-6 rounded shadow hover:shadow-md transition-shadow">
-              <h2 class="text-xl font-semibold mb-1 text-gray-800 hover:text-blue-700">
+            <a href="{{ .Permalink }}" class="post-preview post-preview--linked">
+              <h2 class="post-preview__title">
                 {{ .Title }}
               </h2>
-              <div class="text-sm text-gray-600 mb-2">
+              <div class="post-preview__date">
                 {{ partial "date.html" .Date }}
               </div>
               {{ with .Params.tags }}
-                <div class="flex flex-wrap gap-2 text-xs">
+                <div class="tag-list">
                   {{ range . }}
-                    <span class="bg-gray-200 px-2 py-1 rounded">{{ . }}</span>
+                    <span class="tag">{{ . }}</span>
                   {{ end }}
                 </div>
               {{ end }}
@@ -41,11 +41,11 @@
         {{ end }}
       </ul>
     {{ else }}
-      <p class="text-gray-600 text-sm">このタグに関連する記事はまだありません。</p>
+      <p class="page-content__empty">このタグに関連する記事はまだありません。</p>
     {{ end }}
 
-    <div class="mt-12 text-center">
-      <a href="/blog" class="text-blue-600 underline hover:text-blue-800">
+    <div class="page-content__back">
+      <a href="/blog" class="page-content__back-link">
         ブログ一覧に戻る
       </a>
     </div>

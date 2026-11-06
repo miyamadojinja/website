@@ -13,25 +13,25 @@
     {{ partial "card-columns.html" . }}
 */}}
 
-<div class="flex flex-wrap justify-center gap-6">
+<div class="content-grid">
   {{ range . }}
-    <div class="w-80 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div class="content-grid__card">
       {{ if .linkUrl }}
-        <a href="{{ .linkUrl }}" class="block h-full">
+        <a href="{{ .linkUrl }}" class="content-grid__link">
       {{ end }}
 
       {{ if .image }}
-        <div class="aspect-video overflow-hidden">
-          <img src="{{ relURL .image }}" alt="{{ .name }}" class="w-full h-full object-cover">
+        <div class="content-grid__media">
+          <img src="{{ relURL .image }}" alt="{{ .name }}" class="content-grid__image">
         </div>
       {{ end }}
 
-      <div class="p-4">
-        <h3 class="text-lg font-semibold mb-2 text-gray-800">
+      <div class="content-grid__body">
+        <h3 class="content-grid__title">
           {{ .name }}
         </h3>
         {{ with .description }}
-          <div class="prose prose-sm text-gray-700 leading-relaxed">
+          <div class="rich-text rich-text--small content-grid__description">
             {{ . | markdownify }}
           </div>
         {{ end }}

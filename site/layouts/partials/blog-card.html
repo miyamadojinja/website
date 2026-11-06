@@ -1,18 +1,18 @@
-<a href="{{ .RelPermalink }}" class="block group">
-  <article class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm group-hover:shadow-md transition-shadow duration-200">
-    <p class="text-sm text-gray-500 mb-1">
+<a href="{{ .RelPermalink }}" class="blog-card">
+  <article class="blog-card__surface">
+    <p class="blog-card__date">
       {{ partial "date.html" .Date }}
     </p>
-    <h2 class="text-lg font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-150">
+    <h2 class="blog-card__title">
       {{ .Title }}
     </h2>
     {{ with .Summary }}
-      <p class="text-gray-700 text-sm mt-2 line-clamp-3">{{ . }}</p>
+      <p class="blog-card__summary">{{ . }}</p>
     {{ end }}
     {{ with .Params.tags }}
-      <div class="flex flex-wrap gap-2 mt-3 text-xs">
+      <div class="blog-card__tags">
         {{ range . }}
-          <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded">
+          <span class="blog-card__tag">
             {{ . }}
           </span>
         {{ end }}

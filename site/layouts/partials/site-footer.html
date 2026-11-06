@@ -1,25 +1,25 @@
-<footer class="bg-gradient-to-t from-amber-50/60 to-white/90 text-red-900 backdrop-blur-sm border-t-2 border-red-200 mt-24 text-sm leading-relaxed">
+<footer class="site-footer">
   <!-- Contact Section -->
-  <div class="py-12 px-6 sm:px-8">
-    <h2 class="text-xl font-semibold text-center mb-4 tracking-wide">
-      <span class="block sm:inline">お問い合わせは</span>
-      <span class="block sm:inline">海山道神社社務所まで</span>
+  <div class="site-footer__contact">
+    <h2 class="site-footer__heading">
+      <span class="site-footer__heading-part">お問い合わせは</span>
+      <span class="site-footer__heading-part">海山道神社社務所まで</span>
     </h2>
-    <address class="not-italic space-y-2 text-center">
+    <address class="site-footer__address">
       <div>
-        <a href="{{ .Site.Params.officeMapLinkUrl }}" class="underline hover:text-red-600">
+        <a href="{{ .Site.Params.officeMapLinkUrl }}" class="site-footer__link">
           {{ .Site.Params.OfficeAddress }}
         </a>
       </div>
       <div>
         TEL
-        <a href="tel:{{ .Site.Params.OfficePhone }}" class="underline hover:text-red-600">
+        <a href="tel:{{ .Site.Params.OfficePhone }}" class="site-footer__link">
           {{ .Site.Params.OfficePhone }}
         </a>
       </div>
       <div>
         EMAIL
-        <a href="mailto:{{ .Site.Params.OfficeEmail }}" class="underline hover:text-red-600">
+        <a href="mailto:{{ .Site.Params.OfficeEmail }}" class="site-footer__link">
           {{ .Site.Params.OfficeEmail }}
         </a>
       </div>
@@ -27,24 +27,24 @@
   </div>
 
   <!-- Social Links -->
-  <div class="flex justify-center gap-6 mb-8">
-    <a href="{{ .Site.Params.TwitterUrl }}" class="hover:opacity-80 transition-opacity">
-      <img src="/img/twitter.svg" alt="Twitter" class="w-8 h-8">
+  <div class="site-footer__social">
+    <a href="{{ .Site.Params.TwitterUrl }}" class="site-footer__social-link">
+      <img src="/img/twitter.svg" alt="Twitter" class="site-footer__social-icon">
     </a>
-    <a href="{{ .Site.Params.FacebookUrl }}" class="hover:opacity-80 transition-opacity">
-      <img src="/img/facebook.svg" alt="Facebook" class="w-8 h-8">
+    <a href="{{ .Site.Params.FacebookUrl }}" class="site-footer__social-link">
+      <img src="/img/facebook.svg" alt="Facebook" class="site-footer__social-icon">
     </a>
-    <a href="{{ .Site.Params.InstagramUrl }}" class="hover:opacity-80 transition-opacity">
-      <img src="/img/instagram.svg" alt="Instagram" class="w-8 h-8">
+    <a href="{{ .Site.Params.InstagramUrl }}" class="site-footer__social-link">
+      <img src="/img/instagram.svg" alt="Instagram" class="site-footer__social-icon">
     </a>
   </div>
 
   <!-- Source Code -->
   {{ with .Site.Params.sourceCodeUrl }}
-    <div class="pb-3 text-center text-gray-500 text-xs">
+    <div class="site-footer__source">
       <a
         href="{{ . }}"
-        class="underline hover:text-red-600"
+        class="site-footer__link"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -54,7 +54,7 @@
   {{ end }}
 
   <!-- Copyright -->
-  <div class="pb-8 text-center text-gray-400 text-xs">
+  <div class="site-footer__copyright">
     &copy; {{ with .Site.Copyright | default .Site.Title }}{{ . | safeHTML }} {{ now.Format "2006" }}{{ end }}
   </div>
 </footer>

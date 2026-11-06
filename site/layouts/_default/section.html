@@ -2,30 +2,30 @@
   {{ partial "page-top-spacer.html" . }}
   {{ partial "page-title.html" . }}
 
-  <main class="container px-4 mb-12">
+  <main class="page-content page-content--section">
     {{ if .Params.MainImage }}
-      <div class="mb-6">
+      <div class="page-content__image">
         {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
       </div>
     {{ end }}
 
     {{ if .Content }}
-      <div class="prose max-w-none mb-8">
+      <div class="rich-text page-content__intro">
         {{ .Content }}
       </div>
     {{ end }}
 
-    <div class="space-y-6">
+    <div class="post-list">
       {{ range .Paginator.Pages.ByPublishDate.Reverse }}
         <a href="{{ .RelPermalink }}">
-          <article class="bg-white p-6 rounded shadow hover:shadow-md transition-shadow">
-            <h2 class="text-lg font-semibold mb-1">
+          <article class="post-preview">
+            <h2 class="post-preview__title">
               {{ .Title }}
             </h2>
-            <div class="text-sm text-gray-600 mb-2">
+            <div class="post-preview__date">
               {{ partial "date.html" .Date }}
             </div>
-            <p class="text-gray-700">
+            <p class="post-preview__summary">
               {{ .Summary }}
             </p>
           </article>

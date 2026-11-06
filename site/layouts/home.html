@@ -1,41 +1,41 @@
 {{ define "main" }}
   {{ partial "page-top-spacer.html" . }}
 
-  <header class="relative">
-    <div class="relative z-0">
+  <header class="home-hero">
+    <div class="home-hero__image">
       {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
     </div>
-    <div class="relative z-10 max-w-4xl mx-auto -mt-8 sm:-mt-12 px-6 sm:px-8 lg:px-12">
-      <div class="bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+    <div class="home-hero__intro">
+      <div class="info-panel">
         {{ partial "prose-block.html" .Params.Introduction }}
       </div>
     </div>
   </header>
 
-  <main class="container mx-auto px-4">
+  <main class="home-content">
     {{ if .Params.News }}
-      <section class="my-20">
-        <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+      <section class="home-content__section">
+        <div class="info-panel info-panel--narrow">
           {{ partial "section-title.html" (dict "text" "お知らせ") }}
           {{ partial "prose-block.html" .Params.News }}
         </div>
       </section>
     {{ end }}
 
-    <section class="my-20">
-      <img src="/img/miyamadosan.svg" class="mx-auto mb-8 w-64 sm:w-80 md:w-96 no-decoration" alt="みやまどさんのロゴ">
+    <section class="home-content__section">
+      <img src="/img/miyamadosan.svg" class="home-content__mascot" alt="みやまどさんのロゴ">
       {{ partial "prose-block.html" .Content }}
     </section>
 
-    <section class="my-20">
+    <section class="home-content__section">
       {{ partial "card-columns" .Params.Saijin }}
     </section>
 
-    <section class="my-20">
+    <section class="home-content__section">
       {{ partial "card-columns" .Params.Features }}
     </section>
 
-    <section class="my-20">
+    <section class="home-content__section">
       {{ partial "section-title.html" (dict "text" "厄年") }}
       {{ partial "yakudoshi-table.html" .Params.yakudoshi }}
     </section>
@@ -43,12 +43,12 @@
     {{ $recentPosts := where .Site.RegularPages "Section" "blog" }}
     {{ $postCount := len $recentPosts }}
     {{ if gt $postCount 0 }}
-      <section class="my-20">
+      <section class="home-content__section">
         {{ partial "section-title.html" (dict "text" "ブログ") }}
-        <div class="prose max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+        <div class="rich-text info-panel info-panel--narrow">
           {{ partial "blog-table.html" . }}
 
-          <div class="flex flex-wrap justify-between items-center mt-6 text-sm gap-y-2">
+          <div class="home-content__blog-footer">
             <a href="/blog">
               全記事を見る（{{ $postCount }} 件）
             </a>
@@ -58,18 +58,18 @@
       </section>
     {{ end }}
 
-    <section class="my-20">
+    <section class="home-content__section">
       {{ partial "section-title.html" (dict "text" "境内案内") }}
       {{ if .Params.KeidaiImage }}
-        <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
+        <img class="home-content__keidai-image" src="{{ .Params.KeidaiImage }}" alt="境内画像">
       {{ end }}
       {{ partial "keidai-list.html" .Params.keidaiSpots }}
     </section>
 
-    <section class="my-20">
+    <section class="home-content__section">
       {{ partial "section-title.html" (dict "text" "交通のご案内") }}
-      <iframe class="w-full h-[450px] mb-6" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
-      <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10 mb-6">
+      <iframe class="home-content__map" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
+      <div class="info-panel info-panel--narrow home-content__transport">
         {{ partial "prose-block.html" .Params.transportation }}
       </div>
     </section>

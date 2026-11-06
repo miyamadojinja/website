@@ -14,25 +14,25 @@
     - Optionally includes a `.linkUrl` to wrap the card with a link
 */}}
 
-<ul class="flex flex-wrap justify-center gap-6">
+<ul class="item-grid">
   {{ range . }}
-    <li class="w-80 h-full">
+    <li class="item-grid__item">
       {{ if .linkUrl }}
         <a href="{{ .linkUrl }}">
       {{ end }}
 
-      <div class="bg-white rounded shadow hover:shadow-lg transition-shadow overflow-hidden">
+      <div class="item-grid__card">
         {{ if .image }}
-          <div class="aspect-[3/4] overflow-hidden">
-            <img src="{{ relURL .image }}" alt="{{ .name }}" class="w-full h-full object-cover">
+          <div class="item-grid__media">
+            <img src="{{ relURL .image }}" alt="{{ .name }}" class="item-grid__image">
           </div>
         {{ end }}
 
-        <div class="p-4">
-          <h4 class="text-lg font-semibold mb-2">
+        <div class="item-grid__body">
+          <h4 class="item-grid__title">
             {{ .name }}
           </h4>
-          <div class="prose text-sm">
+          <div class="rich-text rich-text--small item-grid__description">
             {{ .description | markdownify }}
           </div>
         </div>

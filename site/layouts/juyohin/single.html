@@ -3,7 +3,7 @@
 
   - Renders shrine items like お守り and おふだ
   - Includes image grid via `card-flex-wrap`
-  - Uses unified header section and `.prose` for content
+  - Uses unified header section and `.rich-text` for content
 */}}
 
 {{ define "main" }}
@@ -12,23 +12,23 @@
 
 {{ partial "page-title.html" . }}
 
-<main class="container mx-auto px-4 my-12">
+<main class="page-content">
   {{ if .Params.MainImage }}
-    <div class="mb-6">
+    <div class="page-content__image page-content__image--compact">
       {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
     </div>
   {{ end }}
 
-  <div class="prose max-w-none mb-8">
+  <div class="rich-text page-content__intro page-content__intro--compact">
     {{ .Content }}
   </div>
 
   {{ if .Params.ofudaCollection }}
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">
+    <section class="item-collection">
+      <h2 class="item-collection__heading">
         おふだ
       </h2>
-      <div class="prose max-w-none mb-4">
+      <div class="rich-text item-collection__description">
         {{ .Params.ofudaDescription | markdownify }}
       </div>
       {{ partial "card-flex-wrap" .Params.ofudaCollection }}
@@ -36,11 +36,11 @@
   {{ end }}
 
   {{ if .Params.omamoriCollection }}
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">
+    <section class="item-collection">
+      <h2 class="item-collection__heading">
         お守り
       </h2>
-      <div class="prose max-w-none mb-4">
+      <div class="rich-text item-collection__description">
         {{ .Params.omamoriDescription | markdownify }}
       </div>
       {{ partial "card-flex-wrap" .Params.omamoriCollection }}

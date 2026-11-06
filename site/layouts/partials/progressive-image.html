@@ -15,21 +15,21 @@
 {{ if (in $supported_exts $ext) }}
 {{ $headless_bundle := .context.Site.GetPage "page" "img" }}
 {{ $original := $headless_bundle.Resources.GetMatch (strings.TrimPrefix "/img/" .src) }}
-<picture class="block mx-auto">
+<picture class="progressive-image">
   {{ if $original }}
   {{ $cropped := $original.Fill "1200x900 Center" }} {{/* 4:3 aspect ratio */}}
   {{ $small := $cropped.Resize "20x" }}
-  <a class="progressive replace block" href="{{ $cropped.RelPermalink }}">
+  <a class="progressive-image__link progressive replace" href="{{ $cropped.RelPermalink }}">
     <img
-          class="preview block max-w-full h-auto"
+          class="progressive-image__preview preview"
           src="{{ $small.RelPermalink }}"
           alt="{{ .alt }}"
         >
     </a>
     {{ else }}
-    <img class="block max-w-full h-auto" src="{{ .src }}" alt="{{ .alt }}">
+    <img class="progressive-image__full" src="{{ .src }}" alt="{{ .alt }}">
     {{ end }}
   </picture>
   {{ else }}
-  <img class="block max-w-full h-auto" src="{{ .src }}" alt="{{ .alt }}">
+  <img class="progressive-image__full" src="{{ .src }}" alt="{{ .alt }}">
   {{ end }}

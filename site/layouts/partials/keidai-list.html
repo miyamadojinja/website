@@ -12,13 +12,13 @@
     - Expects a slice of maps with `number` and `name` keys
 */}}
 
-<ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+<ul class="shrine-spots">
   {{ range . }}
-    <li class="flex items-start gap-3">
-      <span class="text-white bg-red-700 rounded-full px-3 py-1 text-sm font-semibold">
+    <li class="shrine-spots__item">
+      <span class="shrine-spots__number">
         {{ .number }}
       </span>
-      <span class="text-gray-800 text-base">
+      <span class="shrine-spots__name">
         {{ .name }}
       </span>
     </li>

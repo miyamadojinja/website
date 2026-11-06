@@ -10,29 +10,29 @@
   {{ partial "page-top-spacer.html" . }}
   {{ partial "page-title.html" . }}
 
-  <main class="container mx-auto px-4 my-12">
+  <main class="page-content">
     {{ with .Params.MainImage }}
-      <div class="mb-8">
+      <div class="page-content__image">
         {{ partial "progressive-image.html" (dict "context" $ "src" . "alt" $.Title) }}
       </div>
     {{ end }}
 
     {{/* Metadata: date and tags */}}
-    <div class="text-sm text-gray-600 mb-4 flex flex-wrap gap-2 items-center">
+    <div class="article-meta">
       {{ with .Date }}
-        <div class="flex items-center gap-1">
-          <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+        <div class="article-meta__date">
+          <svg class="article-meta__icon" fill="currentColor" viewBox="0 0 20 20">
             <path d="M6 2a1 1 0 00-1 1v1H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-.002V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zM5 8h10v8H5V8z" />
           </svg>
           {{ partial "date.html" . }}
         </div>
       {{ end }}
       {{ range .Params.tags }}
-        <span class="bg-gray-200 px-2 py-1 rounded text-xs">{{ . }}</span>
+        <span class="tag tag--small">{{ . }}</span>
       {{ end }}
     </div>
 
-    <div class="prose max-w-none">
+    <div class="rich-text">
       {{ .Content }}
     </div>
   </main>

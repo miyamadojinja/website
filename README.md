@@ -12,38 +12,25 @@
 ## Requirements
 
 - [Hugo Extended](https://gohugo.io/getting-started/installing/) (`hugo version` should include `extended`)
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
-
-## Setup
-
-Install Node.js dependencies (e.g., TailwindCSS and Decap CMS proxy server):
-
-```bash
-./scripts/setup.sh
-```
+- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) (optional, for the local Decap CMS proxy only)
 
 ## Development
 
-To start the full local development environment:
+To start the Hugo development server:
 
 ```bash
 ./scripts/dev.sh
 ```
 
-This will:
+This serves the site at `http://localhost:1313` without starting the CMS proxy.
 
-- Run Hugo dev server at `http://localhost:1313`
-- Run Decap CMS local proxy at `http://localhost:8081`
-- Open both the public site and `/admin` interface in your browser
-
-If you only want to run the site:
+Alternatively:
 
 ```bash
 ./scripts/serve-site.sh
 ```
 
-If you only want to run the CMS backend:
+For optional local CMS editing (requires Node.js/npm), run separately:
 
 ```bash
 ./scripts/serve-admin.sh
@@ -59,9 +46,10 @@ You can also open them manually:
 ## File Structure
 
 ```bash
-scripts/                 # Local dev scripts (setup, dev, server)
+scripts/                 # Local dev scripts
 site/                    # Hugo site root
 site/static/admin/       # Decap CMS config and entrypoint
+site/assets/css/main.css  # Plain CSS using BEM
 ```
 
 ## Content Management

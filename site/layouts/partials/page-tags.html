@@ -17,7 +17,7 @@
 {{ range $name := $tags }}
   {{ with site.GetPage (printf "/tags/%s" (urlize $name)) }}
     <a href="{{ .RelPermalink }}"
-       class="inline-block bg-gray-200 px-2 py-1 rounded text-sm hover:bg-gray-300 transition">
+       class="tag-link">
       {{ $name }}
     </a>
   {{ end }}

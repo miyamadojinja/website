@@ -10,14 +10,14 @@
   {{ partial "page-top-spacer.html" . }}
   {{ partial "page-title.html" . }}
 
-  <main class="container mx-auto px-4 my-12">
+  <main class="page-content">
     {{ if .Params.MainImage }}
-      <div class="mb-8">
+      <div class="page-content__image">
         {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
       </div>
     {{ end }}
 
-    <div class="prose max-w-none">
+    <div class="rich-text">
       {{ .Content }}
     </div>
   </main>

@@ -10,21 +10,21 @@
 {{/* Create a variable with that section to use in multiple places. */}}
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{ $n_posts := $.Param "recentPostCount" | default 3 }}
-<table class="w-full table-auto border-separate border-spacing-y-2">
+<table class="blog-table">
   <tbody>
     {{ range (first $n_posts $section) }}
     <tr>
-      <td class="whitespace-nowrap text-sm text-gray-500 align-top pr-4">
+      <td class="blog-table__date">
         <time datetime="{{ . }}">{{ dateFormat "2006/01/02" .Date }}</time>
       </td>
-      <td class="align-top">
+      <td class="blog-table__entry">
         <a href="{{ .RelPermalink }}">
-          <span class="font-medium">{{ .Title }}</span>
+          <span class="blog-table__title">{{ .Title }}</span>
         </a>
         {{ if ne .Params.tags nil }}
-        <div class="flex flex-wrap gap-2 mt-1 text-sm">
+        <div class="blog-table__tags">
           {{ range .Params.tags }}
-          <span class="inline-block bg-gray-200 px-2 py-1 rounded">{{ . }}</span>
+          <span class="tag">{{ . }}</span>
           {{ end }}
         </div>
         {{ end }}

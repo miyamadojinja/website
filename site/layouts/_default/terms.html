@@ -10,22 +10,22 @@
   {{ partial "page-top-spacer.html" . }}
   {{ partial "page-title.html" . }}
 
-  <main class="container mx-auto px-4 my-12">
-    <div class="prose max-w-none mb-10">
+  <main class="page-content">
+    <div class="rich-text page-content__intro">
       {{ .Content }}
     </div>
     {{ range $key, $value := .Data.Terms }}
-      <div class="mb-8">
+      <div class="term-group">
         <a href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">
-          <h2 class="text-2xl font-semibold text-blue-700 hover:underline">
+          <h2 class="term-group__heading">
             {{ $.Data.Singular | humanize }}: {{ $key }}
           </h2>
         </a>
-        <ul class="mt-4 space-y-3">
+        <ul class="term-group__list">
           {{ range $value.Pages }}
           <li>
-            <a href="{{ .Permalink }}" class="block bg-white p-4 shadow rounded hover:shadow-md transition-shadow">
-              <h3 class="text-lg font-medium">
+            <a href="{{ .Permalink }}" class="post-preview post-preview--linked">
+              <h3 class="post-preview__title">
                 {{ .Title }}
               </h3>
             </a>

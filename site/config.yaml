@@ -59,31 +59,3 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-
-# https://gohugo.io/functions/css/tailwindcss/
-build:
-  buildStats:
-    enable: true
-  cachebusters:
-  - source: assets/notwatching/hugo_stats\.json
-    target: css
-  - source: (postcss|tailwind)\.config\.js
-    target: css
-module:
-  mounts:
-  - source: assets
-    target: assets
-  - disableWatch: true
-    source: hugo_stats.json
-    target: assets/notwatching/hugo_stats.json
-
-# Allow Hugo's asset pipeline to invoke only the required build tools.
-security:
-  exec:
-    allow:
-    - '^(dart-)?sass$'
-    - '^go$'
-    - '^git$'
-    - '^node$'
-    - '^postcss$'
-    - '^tailwindcss$'

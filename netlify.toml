@@ -1,12 +1,8 @@
-# https://gohugo.io/hosting-and-deployment/hosting-on-netlify/#configure-hugo-version-in-netlify
-# https://docs.netlify.com/configure-builds/overview/#definitions
+# https://gohugo.io/hosting-and-deployment/hosting-on-netlify/
 [build]
 base    = "site"
 publish = "public"
-command = "npm ci && hugo"
-
-[build.environment]
-NODE_VERSION = "24"
+command = "hugo"
 
 [context.production.environment]
 HUGO_VERSION = "0.165.0"

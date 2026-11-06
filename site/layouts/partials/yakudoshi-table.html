@@ -2,7 +2,7 @@
   Partial: yakudoshi-table.html
 
   - Renders a 厄年 (yakudoshi) age table with separate rows for 男 (men) and 女 (women)
-  - Preserves traditional table formatting with Tailwind classes for borders, alignment, and caption
+  - Preserves traditional table formatting with BEM classes for borders, alignment, and caption
   - All table content is passed in via `dict` arguments:
     - `caption`: Text shown beneath the table
     - `men`: Slice of row slices for male entries (e.g., 前厄〜後厄, year, age)
@@ -26,10 +26,10 @@
 
 */}}
 
-<div class="max-w-3xl mx-auto prose text-sm">
-  <table class="w-full table-auto border border-collapse border-gray-300">
+<div class="yakudoshi">
+  <table class="yakudoshi__table">
     {{ with .caption }}
-      <caption class="caption-bottom text-left text-gray-700 mt-2">
+      <caption class="yakudoshi__caption">
         {{ . }}
       </caption>
     {{ end }}
@@ -37,14 +37,14 @@
     <tbody>
       {{ with .men }}
         {{ range $i, $row := . }}
-          <tr class="text-center">
+          <tr class="yakudoshi__row">
             {{ if eq $i 0 }}
-              <th class="bg-gray-100 border border-gray-300 px-2 py-1" rowspan="{{ len $.men }}">
+              <th class="yakudoshi__heading" rowspan="{{ len $.men }}">
                 男
               </th>
             {{ end }}
             {{ range $cell := $row }}
-              <td class="border border-gray-300 px-2 py-1">
+              <td class="yakudoshi__cell">
                 {{ $cell }}
               </td>
             {{ end }}
@@ -54,14 +54,14 @@
 
       {{ with .women }}
         {{ range $i, $row := . }}
-          <tr class="text-center">
+          <tr class="yakudoshi__row">
             {{ if eq $i 0 }}
-              <th class="bg-gray-100 border border-gray-300 px-2 py-1" rowspan="{{ len $.women }}">
+              <th class="yakudoshi__heading" rowspan="{{ len $.women }}">
                 女
               </th>
             {{ end }}
             {{ range $cell := $row }}
-              <td class="border border-gray-300 px-2 py-1">
+              <td class="yakudoshi__cell">
                 {{ $cell }}
               </td>
             {{ end }}
